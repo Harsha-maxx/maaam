@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>
+Registration Page
+</title>
+<style>
+body{
+text-align:center;
+background-color:lightblue;
+}
+</style>
+<script>
+function getvalue()
+{
+var name=document.getElementById("name").value;
+var email=document.getElementById("email").value;
+var mob=document.getElementById("mob").value;
+var passwd=document.getElementById("passwd").value;
+var confirm=document.getElementById("confirm").value;
+if(email==null email=="")
+{
+alert("email shouldn't be blank");
+return false;
+}
+else if(passwd.length<9)
+{
+alert("password must be more than 9 characters long");
+return false;
+}
+localStorage.setItem("name",name);
+localStorage.setItem("email",email);
+localStorage.setItem("mob",mob);
+localStorage.setItem("passwd",passwd);
+localStorage.setItem("confirm",confirm);
+return;
+}
+</script>
+</head>
+<body>
+<h1>Regitration Form</h1>
+<form action="ddetails.html">
+Name<input type="textbox" id="name" placeholder="Name"><br><br>
+email<input type="email"  id="email" name="email" pattern="/^[a-zA-Z0-9,_%+-]+@[a-zA-Z0-9,-]+\[a-zA-Z{2,}]" placeholder="email"><br><br>
+Mob<input type="tel"  id="mob" name="mob" pattern="[0-9]{10}" required><br><br>
+Passwd<input type="password"  id="passwd" placeholder="password"><br><br>
+Confirm password<input type="text" id="confirm"><br><br>
+<input type=radio name="gender">male
+<input type=radio name="gender">female<br><br>
+
+<input type="submit" value="Submit" onclick="getvalue()">
+</form>
+</body>
+</html>
